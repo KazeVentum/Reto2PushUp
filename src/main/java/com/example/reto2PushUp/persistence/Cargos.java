@@ -1,20 +1,26 @@
 package com.example.reto2PushUp.persistence;
 
-import jakarta.persistence.*;
 
+import jakarta.persistence.*;
 
 import java.util.List;
 
 @Entity
-@Table(name = "color")
-public class Color {
+@Table(name = "cargos")
+public class Cargos {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
+
     @Column(name = "descripcion", nullable = false)
     private String descripcion;
 
-    @OneToMany(mappedBy = "color", cascade = CascadeType.ALL)
-    private List<DetalleOrden> detalleOrdenes;
+    @Column(name = "sueldo_base", nullable = false)
+    private double sueldoBase;
+
+    @OneToMany(mappedBy = "cargos", cascade = CascadeType.ALL)
+    private List<Empleado> empleados;
+
 }

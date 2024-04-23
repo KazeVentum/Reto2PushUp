@@ -2,7 +2,6 @@ package com.example.reto2PushUp.persistence;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
 
 @Entity
 @Table(name = "detalle_orden")
@@ -20,13 +19,13 @@ public class DetalleOrden {
     private int cantidadProducida;
 
 
-//    @JoinColumn(name="id_orden_fk", nullable = false)
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    private Orden orden;
+    @JoinColumn(name="id_orden_fk", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Orden orden;
 
-//    @JoinColumn(name="id_prenda_fk", nullable = false)
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    private Prenda prenda;
+    @JoinColumn(name="id_prenda_fk", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Prenda prenda;
 
     @JoinColumn(name="id_color_fk", nullable = false)
     @ManyToOne(fetch = FetchType.EAGER)
@@ -35,5 +34,5 @@ public class DetalleOrden {
     @JoinColumn(name="id_estado_fk", nullable = false)
     @ManyToOne(fetch = FetchType.EAGER)
     private Estado estado;
-    
+
 }
