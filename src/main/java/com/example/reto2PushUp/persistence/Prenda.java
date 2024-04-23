@@ -21,14 +21,17 @@ public class Prenda {
     @Column(name = "valor_unit_usd", nullable = false)
     private double valorUnitUsd;
 
-    @Column(name = "id_estado_fk", nullable = false)
-    private double idEstadoFk;
+    @JoinColumn(name="id_estado_fk", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Estado estado;
 
-    @Column(name = "id_tipo_proteccion", nullable = false)
-    private double idTipoProteccion;
+    @JoinColumn(name="id_tipo_proteccion", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER)
+    private TipoProteccion tipoProteccion;
 
-    @Column(name = "id_genero_fk", nullable = false)
-    private double idGeneroFk;
+    @JoinColumn(name="id_genero_fk", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Genero genero;
 
     @Column(name = "codigo", nullable = false)
     private String codigo;
@@ -36,82 +39,4 @@ public class Prenda {
     @OneToMany(mappedBy = "prenda", cascade = CascadeType.ALL)
     private List<Inventario> inventarios;
 
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public double getValorUnitCop() {
-        return valorUnitCop;
-    }
-
-    public void setValorUnitCop(double valorUnitCop) {
-        this.valorUnitCop = valorUnitCop;
-    }
-
-    public double getValorUnitUsd() {
-        return valorUnitUsd;
-    }
-
-    public void setValorUnitUsd(double valorUnitUsd) {
-        this.valorUnitUsd = valorUnitUsd;
-    }
-
-    public double getIdEstadoFk() {
-        return idEstadoFk;
-    }
-
-    public void setIdEstadoFk(double idEstadoFk) {
-        this.idEstadoFk = idEstadoFk;
-    }
-
-    public double getIdTipoProteccion() {
-        return idTipoProteccion;
-    }
-
-    public void setIdTipoProteccion(double idTipoProteccion) {
-        this.idTipoProteccion = idTipoProteccion;
-    }
-
-    public double getIdGeneroFk() {
-        return idGeneroFk;
-    }
-
-    public void setIdGeneroFk(double idGeneroFk) {
-        this.idGeneroFk = idGeneroFk;
-    }
-
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
-
-    @Override
-    public String toString() {
-        return "Prenda{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", valorUnitCop=" + valorUnitCop +
-                ", valorUnitUsd=" + valorUnitUsd +
-                ", idEstadoFk=" + idEstadoFk +
-                ", idTipoProteccion=" + idTipoProteccion +
-                ", idGeneroFk=" + idGeneroFk +
-                ", codigo='" + codigo + '\'' +
-                '}';
-    }
 }

@@ -19,7 +19,7 @@ public class Inventario {
     @Column(name = "valor_vta_usd", nullable = false)
     private double valorVtaUsd;
 
-    @JoinColumn(name="id_prenda_fk", nullable = true)
+    @JoinColumn(name="id_prenda_fk", nullable = false)
     @ManyToOne(fetch = FetchType.EAGER)
     private Prenda prenda;
 
