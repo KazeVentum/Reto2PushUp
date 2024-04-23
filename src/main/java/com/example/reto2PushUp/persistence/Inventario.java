@@ -2,9 +2,15 @@ package com.example.reto2PushUp.persistence;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+import java.util.Set;
+
 @Entity
 @Table(name = "inventario")
 public class Inventario {
+
+    @ManyToMany(mappedBy = "inventarios", fetch = FetchType.EAGER) // Mapped hace referencia a quien va a Mapear
+    private Set<Talla> tallas;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -22,6 +28,9 @@ public class Inventario {
     @JoinColumn(name="id_prenda_fk", nullable = false)
     @ManyToOne(fetch = FetchType.EAGER)
     private Prenda prenda;
+
+    @OneToMany(mappedBy = "inventario", cascade = CascadeType.ALL)
+    private List<DetalleVenta> DetalleVentas;
 
     public Integer getId() {
         return id;

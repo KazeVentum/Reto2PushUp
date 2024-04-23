@@ -2,27 +2,19 @@ package com.example.reto2PushUp.persistence;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table(name = "estado")
-public class Estado {
-
+@Table(name = "color")
+public class Color {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
-
     @Column(name = "descripcion", nullable = false)
     private String descripcion;
 
-    @OneToMany(mappedBy = "estado", cascade = CascadeType.ALL)
-    private List<Prenda> prendas;
-
-    @JoinColumn(name="id_tipo_estado_fk", nullable = false)
-    @ManyToOne(fetch = FetchType.EAGER)
-    private TipoEstado tipoEstado;
-
-    @OneToMany(mappedBy = "estado", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "color", cascade = CascadeType.ALL)
     private List<DetalleOrden> detalleOrdenes;
 }
