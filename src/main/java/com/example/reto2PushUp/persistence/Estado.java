@@ -25,4 +25,55 @@ public class Estado {
 
     @OneToMany(mappedBy = "estado", cascade = CascadeType.ALL)
     private List<DetalleOrden> detalleOrdenes;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public List<Prenda> getPrendas() {
+        return prendas;
+    }
+
+    public void setPrendas(List<Prenda> prendas) {
+        this.prendas = prendas;
+    }
+
+    public TipoEstado getTipoEstado() {
+        return tipoEstado;
+    }
+
+    public void setTipoEstado(TipoEstado tipoEstado) {
+        this.tipoEstado = tipoEstado;
+    }
+
+    public List<DetalleOrden> getDetalleOrdenes() {
+        return detalleOrdenes;
+    }
+
+    public void setDetalleOrdenes(List<DetalleOrden> detalleOrdenes) {
+        this.detalleOrdenes = detalleOrdenes;
+    }
+
+    @Override
+    public String toString() {
+        return "Estado{" +
+                "id=" + id +
+                ", descripcion='" + descripcion + '\'' +
+                ", prendas=" + prendas +
+                ", tipoEstado=" + tipoEstado +
+                ", detalleOrdenes=" + detalleOrdenes +
+                '}';
+    }
 }

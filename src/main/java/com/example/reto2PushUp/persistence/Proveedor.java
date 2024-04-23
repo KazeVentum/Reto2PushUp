@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.util.Set;
 
+
 @Entity
 @Table(name = "proveedor")
 public class Proveedor{
@@ -12,8 +13,8 @@ public class Proveedor{
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "nip_proveedor", nullable = false)
-    private String nipProveedor;
+    @Column(name = "nit_proveedor", nullable = false)
+    private String nitProveedor;
 
     @Column(name = "nombre", nullable = false)
     private String nombre;
@@ -32,6 +33,4 @@ public class Proveedor{
             inverseJoinColumns = @JoinColumn(name = "id_proveedor_fk")
     )
     private Set<Insumo> insumos;
-
-
 }
